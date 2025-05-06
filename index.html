@@ -12,12 +12,14 @@
         <script>
             fetch('https://ci-swapi.herokuapp.com/api/people/')
                 .then((response) => response.json()) // or .text()
-                .then((data) => {
-                    document.getElementById('content').innerText = data.results[1].films;
-                })
+                .then((data) => displayData(data))
                 .catch((e) => {
                     console.error('Error: ', e);
                 });
+
+            function displayData(data) {
+                document.getElementById('content').innerText = data.results[1].films;
+            }
         </script>
     </body>
 </html>
